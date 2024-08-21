@@ -7,6 +7,14 @@ collaborate on code simultaneously, and chat in real time.<br><br>
 - Users can join a room to collaboratively edit code with others.
 - Changes are updated instantly for all participants in the room.
 - Syntax highlighting for various programming languages
-- Real-time chat allows users to communicate within the room
+- Real-time chat allows users to communicate within the room <br><br>
+### Built With:
+- Node.js
+- Express.js
+- CodeMirror
+- Socket.io
+- MongoDB
+- Git
+  
 
 
