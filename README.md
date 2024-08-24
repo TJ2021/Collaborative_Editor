@@ -6,7 +6,7 @@ A collaborative, real-time code editor that allows users to code together seamle
         &nbsp;&nbsp;&nbsp;Secure authentication ensures that only registered users can access the collaborative platform.
 - Users can join a room to collaboratively edit code with others.
 - Changes are updated instantly for all participants in the room : <br>
-  &nbsp;&nbsp;&nbsp;Any changes made by one participant are instantly visible to all other participants in the room, ensuring a truly collaborative &nbsp;&nbsp;&nbsp;experience.
+  &nbsp;&nbsp;&nbsp;Any changes made by one participant are instantly visible to all other participants in the room, ensuring a truly collaborative experience.
 - Syntax highlighting for various programming languages
 - Resume Code Editing : <br>
   &nbsp;&nbsp;&nbsp;Users can leave and rejoin a room, resuming their code editing from where they left off, with all previous changes preserved.
