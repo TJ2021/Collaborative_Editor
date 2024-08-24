@@ -1,28 +1,30 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose');
-var passport = require('passport');
-var session = require('express-session');
-var config = require('./config');
-require('./passport');
+var createError = require('http-errors'); // Import the http-errors module for creating HTTP error objects
+var express = require('express'); // Import the Express framework
+var path = require('path'); // Import the path module for working with file and directory paths
+var cookieParser = require('cookie-parser'); // Import the cookie-parser middleware for handling cookies
+var logger = require('morgan'); // Import the morgan logger middleware for logging HTTP requests
+var mongoose = require('mongoose');  // Import Mongoose for MongoDB object modeling
+var passport = require('passport');  // Import Passport for authentication
+var session = require('express-session'); // Import express-session for session management
+var config = require('./config'); // Import the configuration file
+require('./passport'); // Import Passport configuration and strategies
 
-var indexRoute = require('./routes/index');
-var authRoute = require('./routes/auth');
+var indexRoute = require('./routes/index'); // Import the index routes
+var authRoute = require('./routes/auth'); // Import the authentication routes
 
+// Connect to MongoDB using Mongoose
 mongoose.connect(config.dbConnstring).then(
   () => { 
-     console.log("Connected to DB!");
+     console.log("Connected to DB!");  // Log successful connection to the database
  },
   (err) => { 
-    console.log(err);
+    console.log(err); // Log any connection errors
  }
 );
-global.User = require('./models/user');
+global.User = require('./models/user');  // Make the User model globally accessible
 
-var app = express();
+
+var app = express(); // Create an Express application
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,17 +34,22 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+// Setup session management
 app.use(session({
   secret: config.sessionKey,
   resave: false,
   saveUninitialized: true,
   cookie: {secure: true}
 }));
+
+// Initialize Passport for authentication
 app.use(passport.initialize());
 app.use(passport.session());
 
+// Serve static files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Use the imported routes for handling requests
 app.use('/', indexRoute);
 app.use('/', authRoute);
 
