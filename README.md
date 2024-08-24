@@ -25,7 +25,7 @@ Screenshot of the realtime collaborative code editor <br> <br>
   <img width="1030" alt="Code4Share" src="https://github.com/user-attachments/assets/6756439f-67a0-4382-878b-d514609424b5"><br><br>
 
   ## Lessons Learned
-  - Deepened understanding of client-server interactions
+  - Deepened my understanding of client-server interactions
   - Gained hands-on experience integrating and customizing the CodeMirror editor for real-time collaborative coding.
   - Understood the importance of room management for organizing collaborative sessions and learned how to implement room-based user management in a real-time application.
   - Developed skills in using Socket.IO for real-time communication between clients and the server, ensuring instant updates across all users in a shared room.
