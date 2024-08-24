@@ -3,7 +3,7 @@
 A collaborative, real-time code editor that allows users to code together seamlessly. It enables multiple users to join a shared room collaborate on code simultaneously, and chat in real time, making it ideal for pair programming, remote interviews, or educational purposes..<br><br>
 ### Features
 - User authentication with Email:<br>
-        $nbsp;Secure authentication ensures that only registered users can access the collaborative platform.
+        &nbsp;&nbsp;&nbsp;Secure authentication ensures that only registered users can access the collaborative platform.
 - Users can join a room to collaboratively edit code with others.
 - Changes are updated instantly for all participants in the room : Any changes made by one participant are instantly visible to all other participants in the room, ensuring a truly collaborative experience.
 - Syntax highlighting for various programming languages
