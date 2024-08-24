@@ -5,22 +5,23 @@ var passport = require('passport');
 const { body, validationResult } = require('express-validator');
 
 
-/* Get Login page */
+/* Route for handling the login page */
 router.route('/login')
     .get(function(req, res, next){
-        res.render('login', {title: 'Login you account'})
+        res.render('login', {title: 'Login you account'})   // Render the login page with the title
     })    
     .post(function(req, res, next){
 
     });
 
 
-/* Get Register page */
+/* Route for handling the registration page */
 router.route('/register')
     .get(function(req, res, next){
         res.render('register', {title: 'Register your account'});
     })
     .post([
+        // Validation chain to check input fields
         body('name').notEmpty().withMessage('Empty Name'),
         body('email').isEmail().withMessage('Invalid email'),
         body('password').notEmpty().withMessage('Empty Password'),
@@ -41,14 +42,18 @@ router.route('/register')
                 errorMessages: errors
             });
         }else{
+            // If validation passes, create a new instance of the User model
             var user = new User(); /* create new instance of User model */
             user.name = req.body.name;
             user.email = req.body.email;
             user.setPassword(req.body.password);
+            // Save the user to the database
             user.save()
                 .then(() =>{
+                    // On successful save, redirect the user to the login page
                     res.redirect('/login');
                 }) 
+                // If there's an error saving the user, log the error and re-render the register page with the error message
                 .catch((err) => {
                     console.log(err);
                     res.render('register',{errorMessages:err});
@@ -56,5 +61,5 @@ router.route('/register')
         }
 
     });
-
+* Export the router to be used in the main application file */
 module.exports = router;
